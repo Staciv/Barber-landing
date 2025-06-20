@@ -1,0 +1,44 @@
+[
+  {
+    "id": "haircut_short",
+    "name": "Men's haircut (short)",
+    "description": "Classic short men's haircut.",
+    "price": 30
+  },
+  {
+    "id": "kids_haircut",
+    "name": "Children's haircut",
+    "description": "Haircut for kids up to 12 years.",
+    "price": 30
+  },
+  {
+    "id": "beard_trim",
+    "name": "Beard & Mustache Trim",
+    "description": "Precision trimming of beard and mustache.",
+    "price": 50
+  },
+  {
+    "id": "beard_wax",
+    "name": "Beard trim + Wax shaping",
+    "description": "Trimming and waxing for a clean beard line.",
+    "price": 55
+  },
+  {
+    "id": "toning",
+    "name": "Haircut + Beard toning",
+    "description": "Add color depth and freshness to your beard.",
+    "price": 75
+  },
+  {
+    "id": "extended_haircut",
+    "name": "Extended haircut",
+    "description": "Detailed haircut with longer styling session.",
+    "price": 40
+  },
+  {
+    "id": "emergency",
+    "name": "Emergency haircut (off-hours)",
+    "description": "Urgent haircut outside working hours.",
+    "price": 70
+  }
+]

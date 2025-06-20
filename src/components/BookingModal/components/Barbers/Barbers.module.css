@@ -1,0 +1,7 @@
+.titleCard {
+  color: rgb(2, 0, 39);
+}
+
+.active {
+  background-color: rgba(65, 65, 65, 0.65);
+}

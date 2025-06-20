@@ -1,0 +1,20 @@
+/* 
+toDo: use daisy color here
+*/
+
+.rdp-root {
+  color: #606060;
+  border: none;
+  --rdp-accent-color: rgb(142, 135, 1);
+  --rdp-day-height: 55px;
+  --rdp-day-width: 55px;
+  --rdp-today-color: rgb(39, 16, 255);
+}
+
+@media (max-width: 767px) {
+  .rdp-root {
+    font-size: 12px;
+    --rdp-day-height: 25px;
+    --rdp-day-width: 25px;
+  }
+}

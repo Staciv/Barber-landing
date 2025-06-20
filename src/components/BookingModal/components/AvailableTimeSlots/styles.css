@@ -1,0 +1,31 @@
+.timeSlots-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.timeSlots-wrap button {
+  background-color: #f3f3f38f;
+  color: #585858;
+  width: 50px;
+  padding: 5px;
+  border: 0.5px solid rgb(0, 0, 0);
+  border-radius: 10px;
+
+  transition: all 0.4s;
+}
+.timeSlots-wrap button.active {
+  background-color: #110a0af2;
+  color: rgb(255, 254, 254);
+}
+
+.timeSlots-wrap button:hover {
+  color: #d8d8d8;
+}
+
+.btn.btn-disabled,
+.btn[disabled],
+.btn:disabled {
+  background-color: #76767680;
+  color: rgb(237, 237, 237);
+}
