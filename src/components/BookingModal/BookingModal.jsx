@@ -1,19 +1,23 @@
 import { useState } from "react";
 import { format } from "date-fns";
 
-import { Step1_Personal } from "./steps/Step1_Personal";
-import { Step2_Barber } from "./steps/Step2_Barber";
-import { Step4_Date } from "./steps/Step4_Date";
-import { Step3_Services } from "./steps/Step3_Services";
-import { Step5_Preview } from "./steps/Step5_Preview";
-import { Step6_Created } from "./steps/Step6_Created";
+import { PersonalForm } from "../steps/PersonalForm";
+import { BarberForm } from "../steps/BarberForm";
+import { ServicesForm } from "../steps/ServicesForm";
+import { DateForm } from "../steps/DateForm";
+import { PreviewForm } from "../steps/PreviewForm";
+import { CreatedForm } from "../steps/CreatedForm";
+import { Modal } from "../../ui/Modal/Modal";
+import { Stepper } from "../../ui/Stepper/Stepper";
 
 export function BookingModal() {
+  const [userName, setUserName] = useState("");
+  const [phone, setPhone] = useState("");
   const [barber, setBarber] = useState("");
   const [service, setService] = useState("");
   const [date, setDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
-  const [stepVisible, setStepVisible] = useState(1);
+  const [stepVisible, setStepVisible] = useState(0);
 
   const selectFormattedDate = date ? format(new Date(date), "yyyy-MM-dd") : "";
 
@@ -24,69 +28,94 @@ export function BookingModal() {
     setStepVisible(stepVisible + 1);
   };
 
-  const createAppointment = () => {
+  const handleClickButtonCreateAppointment = () => {
     setStepVisible(stepVisible + 1);
+
+    console.log(userName);
+    console.log(phone);
+    console.log(barber);
+    console.log(service);
+    console.log(selectFormattedDate);
+    console.log(selectedTime);
   };
-  return (
-    <>
-      {stepVisible === 1 && (
-        <Step1_Personal
-          isShowButtonPrev={false}
-          onClickButtonPrevious={handleClickButtonPrevious}
-          onclickButtonNext={handleClickButtonNext}
+
+  // const isValid = userName.length >= 3 && phone.length === 9 && Number(phone);
+
+  const STEPS = [
+    {
+      id: 0,
+      title: "Personal",
+      component: (
+        <PersonalForm
+          userName={userName}
+          handleChangeUserName={setUserName}
+          phone={phone}
+          handleChangeUserPhone={setPhone}
         />
-      )}
-      {stepVisible === 2 && (
-        <Step2_Barber
-          barber={barber}
-          setBarber={setBarber}
-          isShowButtonPrev={true}
-          onClickButtonPrevious={handleClickButtonPrevious}
-          onclickButtonNext={handleClickButtonNext}
-        />
-      )}
-      {stepVisible === 3 && (
-        <Step3_Services
-          service={service}
-          setService={setService}
-          isShowButtonPrev={true}
-          onClickButtonPrevious={handleClickButtonPrevious}
-          onclickButtonNext={handleClickButtonNext}
-        />
-      )}
-      {stepVisible === 4 && (
-        <Step4_Date
+      ),
+    },
+    {
+      id: 1,
+      title: "Barber",
+      component: <BarberForm barber={barber} setBarber={setBarber} />,
+    },
+    {
+      id: 2,
+      title: "Services",
+      component: (
+        <ServicesForm selectService={service} onServiceChange={setService} />
+      ),
+    },
+    {
+      id: 3,
+      title: "Date",
+      component: (
+        <DateForm
           barber={barber}
           selectDate={date}
           handleChangeDate={setDate}
           formattedDate={selectFormattedDate}
           selectedTime={selectedTime}
           handleChangeTime={setSelectedTime}
-          isShowButtonPrev={true}
-          onClickButtonPrevious={handleClickButtonPrevious}
-          onclickButtonNext={handleClickButtonNext}
         />
-      )}
-      {stepVisible === 5 && (
-        <Step5_Preview
+      ),
+    },
+    {
+      id: 4,
+      title: "Preview",
+      component: (
+        <PreviewForm
           selectBarber={barber}
           selectService={service}
           selectDate={selectFormattedDate}
           selectedTime={selectedTime}
-          isShowButtonPrev={true}
-          isShowButtonNext={true}
-          onClickButtonPrevious={handleClickButtonPrevious}
-          createAppointment={createAppointment}
+          createAppointment={handleClickButtonCreateAppointment}
         />
-      )}
-      {stepVisible === 6 && (
-        <Step6_Created
-          isShowButtonPrev={false}
-          isShowButtonNext={true}
+      ),
+    },
+    {
+      id: 5,
+      title: "Created",
+      component: (
+        <CreatedForm
           stepVisible={stepVisible}
           setStepVisible={setStepVisible}
         />
-      )}
+      ),
+    },
+  ];
+
+  return (
+    <>
+      <Modal>
+        <Stepper
+          handleNext={handleClickButtonNext}
+          handlePrev={handleClickButtonPrevious}
+          handleCreateAppointment={handleClickButtonCreateAppointment}
+          stepVisible={stepVisible}
+          steps={STEPS}
+        />
+      </Modal>
     </>
   );
 }

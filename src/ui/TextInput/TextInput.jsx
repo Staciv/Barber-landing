@@ -25,7 +25,7 @@ export function TextInput({
   };
 
   return (
-    <div className="w-full m-auto text-black tablet:w-2/3 mobile:w-3/4">
+    <div className="w-full m-auto text-black tablet:w-2/3 mobile:w-full">
       <label className="input input-bordered bg-inputBg border-black flex items-center gap-2 tablet:text-sm">
         {icon}
         <input

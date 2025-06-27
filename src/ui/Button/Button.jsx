@@ -3,7 +3,7 @@ export function Button({ className, onClick, isActive, children, isDisabled }) {
     <button
       className={`btn ${
         isActive ? "active" : ""
-      } ${className} btn btn-wide tablet:text-xs mobile:text-[11px] text-black`}
+      } ${className} btn btn-wide mobile:w-1/2 tablet:text-xs mobile:text-[11px] text-black`}
       onClick={onClick}
       disabled={isDisabled}
     >

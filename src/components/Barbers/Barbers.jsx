@@ -1,4 +1,4 @@
-import { ListItem } from "../../../../ui/ListItem/ListItem";
+import { ListItem } from "../../ui/ListItem/ListItem";
 import styles from "./Barbers.module.css";
 
 export function Barbers({ selectedBarber, onBarberChange }) {
@@ -8,7 +8,7 @@ export function Barbers({ selectedBarber, onBarberChange }) {
     Anastsiya: "Anastsiya",
   };
   return (
-    <div className="list  flex flex-col gap-4 min-w-72 ">
+    <div className="list  flex flex-col gap-4 mobile:gap-2 min-w-72 ">
       <p
         className={`p-4 pb-2 text-xl uppercase text-lime-600 opacity-60 tracking-wide ${styles.titleCard} mobile:text-base`}
       >

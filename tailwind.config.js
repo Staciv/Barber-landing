@@ -4,6 +4,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,css}"],
   theme: {
     extend: {
+      fontFamily: {
+        smooch: ['"Smooch Sans"', "sans-serif"],
+      },
       colors: {
         inputBg: "#f3f3f38f",
         textBarberCard: "rgb(245 253 98)",

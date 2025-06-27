@@ -83,7 +83,7 @@ export function Header() {
         <dialog id="my_modal_3" className="modal">
           <div className="modal-box  max-w-fit p-12 bg-transparent tablet:max-w-full mobile:p-0  mobile:w-full">
             <form method="dialog">
-              <Button className="btn btn-sm text-white bg-slate-400 btn-circle btn-ghost absolute right-1">
+              <Button className="btn btn-sm text-white bg-slate-400 btn-circle btn-ghost absolute right-1 mobile:text-black mobile:border-stone-300 mobile:btn-xs mobile:w-8 mobile:h-8 mobile:z-50 mobile:right-2 mobile:top-2 mobile:btn-ghost">
                 ✕
               </Button>
             </form>

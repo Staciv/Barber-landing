@@ -1,9 +1,9 @@
-import { ListItem } from "../../../../ui/ListItem/ListItem";
-import services from "./services.json";
+import { ListItem } from "../../ui/ListItem/ListItem";
+import services from "./../Services/services.json";
 
-export function Services({ selectService, onServiceChange }) {
+export function ServicesForm({ selectService, onServiceChange }) {
   return (
-    <div className="list  flex flex-col gap-4 min-w-72 ">
+    <div className="list  flex flex-col gap-4 mobile:gap-2 min-w-72 ">
       {services.map((service) => {
         return (
           <ListItem

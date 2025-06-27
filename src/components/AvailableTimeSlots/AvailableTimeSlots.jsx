@@ -1,5 +1,5 @@
 import "./styles.css";
-import { Button } from "../../../../ui/Button/Button";
+import { Button } from "../../ui/Button/Button";
 import appointments from "./appointments.json";
 
 export function AvailableTimeSlots({
@@ -40,6 +40,7 @@ export function AvailableTimeSlots({
             onClick={() => setSelectedTime(timeSlot)}
             isActive={selectedTime === timeSlot && isDisabled !== "disabled"}
             isDisabled={isDisabled}
+            className="mobile:btn-sm"
           >
             {timeSlot}
           </Button>

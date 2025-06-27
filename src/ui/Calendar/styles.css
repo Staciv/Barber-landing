@@ -6,15 +6,15 @@ toDo: use daisy color here
   color: #606060;
   border: none;
   --rdp-accent-color: rgb(142, 135, 1);
-  --rdp-day-height: 55px;
-  --rdp-day-width: 55px;
+  --rdp-day-height: 40px;
+  --rdp-day-width: 40px;
   --rdp-today-color: rgb(39, 16, 255);
 }
 
 @media (max-width: 767px) {
   .rdp-root {
-    font-size: 12px;
-    --rdp-day-height: 25px;
-    --rdp-day-width: 25px;
+    font-size: 11px;
+    --rdp-day-height: 20px;
+    --rdp-day-width: 20px;
   }
 }

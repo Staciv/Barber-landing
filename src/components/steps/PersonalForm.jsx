@@ -1,28 +1,16 @@
-import { useState } from "react";
-import { Modal } from "../../../ui/Modal/Modal";
-import { TextInput } from "../../../ui/TextInput/TextInput";
+import { TextInput } from "../../ui/TextInput/TextInput";
 
-export function Step1_Personal({ isShowButtonPrev, onclickButtonNext }) {
-  const [userName, setUserName] = useState("");
-  const [phone, setPhone] = useState("");
-
-  let stepValidation;
-
-  if (userName.length >= 3 && phone.length === 9 && Number(phone)) {
-    stepValidation = true;
-  } else {
-    stepValidation = false;
-  }
-
+export function PersonalForm({
+  userName,
+  handleChangeUserName,
+  phone,
+  handleChangeUserPhone,
+}) {
   return (
-    <Modal
-      cardTitle="1. Personal"
-      showButtonPrev={isShowButtonPrev}
-      onclickButtonNext={stepValidation && onclickButtonNext}
-    >
+    <>
       <TextInput
         value={userName}
-        onChange={setUserName}
+        onChange={handleChangeUserName}
         placeholder="Name"
         type="text"
         pattern="[A-Za-zА-Яа-яЁё][A-Za-zА-Яа-яЁё0-9\-]*"
@@ -47,7 +35,7 @@ export function Step1_Personal({ isShowButtonPrev, onclickButtonNext }) {
       />
       <TextInput
         value={phone}
-        onChange={setPhone}
+        onChange={handleChangeUserPhone}
         placeholder="Phone"
         type="tel"
         pattern="[0-9]*"
@@ -75,6 +63,6 @@ export function Step1_Personal({ isShowButtonPrev, onclickButtonNext }) {
         maxLength="9"
         error="Must be 9 digits"
       />
-    </Modal>
+    </>
   );
 }
